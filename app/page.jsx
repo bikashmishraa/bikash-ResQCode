@@ -4,8 +4,14 @@ import Navbar from "./component/Navbar";
 import Composition from "./component/Composition";
 import TemporalBehaviour from "./component/TemporalBeh";
 import SpatialDis from "./component/SpatialDis";
+import {generateToken} from '@/lib/configure/firebase.config'
 
 export default function Home() {
+
+  useEffect(() => {
+    generateToken();
+  },[])
+
   useEffect(() => {
     const script = document.createElement("script");
     script.async = true;
