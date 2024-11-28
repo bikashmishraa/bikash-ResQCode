@@ -1,0 +1,106 @@
+
+import { FaFacebook, FaInstagram, FaLinkedin, FaGithub } from "react-icons/fa6";
+
+const Team = () => {
+
+    const teamData =[
+        {
+            name:'Bikash Chandra Mishra',
+            image:'/bikash.jpg',
+            social:{
+                linkedin:'https://www.linkedin.com/in/bikash-mishra2079/',
+                instagram:'https://www.instagram.com/user_ghost_404',
+                facebook:'https://www.facebook.com/bikashmishra11',
+                github:'https://github.com/bikashmishraa/'
+            }
+        },
+        {
+            name:'Aasna Kasajoo',
+            image:'/aasna.png',
+            social:{
+                linkedin:'https://www.linkedin.com/in/aasna-kasajoo-50418b33b/',
+                instagram:'https://www.instagram.com/ansaa65/',
+                facebook:'https://www.facebook.com/profile.php?id=100082064723648',
+                github:'https://github.com/Aasna079'
+            }
+        },
+        {
+            name:'Anurag Singh',
+            image:'/Anurag.png',
+            social:{
+                linkedin:'',
+                instagram:'https://www.instagram.com/710anurag/',
+                facebook:'https://www.facebook.com/profile.php?id=100090449943597',
+                github:'https://github.com/peachbrains'
+            }
+        },
+        {
+            name:'Aaryan Joshi',
+            image:'aaryan.png',
+            social:{
+                linkedin:'https://www.linkedin.com/in/7n5aj/',
+                instagram:'https://www.instagram.com/a.r.jsh/',
+                facebook:'https://www.facebook.com/7n5aj',
+                github:'https://github.com/7n5aj'
+            }
+        }
+
+    ]
+
+    return (
+      <section className="section-wrapper flex items-center justify-center">
+        <div className="flex-center">
+          <div className="space-y-8">
+            <div className="space-y-3 text-neutral-content">
+              <h2 className="text-3xl font-semibold">Team behind ResQCode</h2>
+              <p className="text-lg">
+                Our team is a group of skilled professionals working together to
+                deliver innovative solutions and turn ideas into reality.
+              </p>
+            </div>
+            <div>
+              <div className="grid grid-cols-2 gap-2 flex flex-wrap flex-col items-center justify-center">
+                {teamData.map((team, idx) => (
+                  <div key={idx} className="space-y-2 flex flex-col">
+                    <div
+                      className="w-1/2 h-80 bg-center bg-cover bg-no-repeat rounded-lg shadow-lg"
+                      style={{ backgroundImage: `url(${team.image})` }}
+                    ></div>
+                    <div className="text-center space-y-2 flex justify-between">
+                      <h3 className="text-lg font-medium text-neutral-content">
+                        {team.name}
+                      </h3>
+                      <ul className="flex-center gap-2  text-xl text-neutral-content">
+                        <li>
+                          <a href={team.social.linkedin}>
+                            <FaLinkedin />
+                          </a>
+                        </li>
+                        <li>
+                          <a href={team.social.instagram}>
+                            <FaInstagram />
+                          </a>
+                        </li>
+                        <li>
+                          <a href={team.social.facebook}>
+                            <FaFacebook />
+                          </a>
+                        </li>
+                        <li>
+                          <a href={team.social.github}>
+                            <FaGithub />
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  };
+  
+  export default Team;

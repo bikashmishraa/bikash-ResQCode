@@ -4,6 +4,8 @@ import Navbar from "./component/Navbar";
 import Composition from "./component/Composition";
 import TemporalBehaviour from "./component/TemporalBeh";
 import SpatialDis from "./component/SpatialDis";
+import Team from "./component/About";
+import ContactUs from "./component/ContactUs";
 
 export default function Home() {
   useEffect(() => {
@@ -27,6 +29,8 @@ export default function Home() {
       <Composition />
       <TemporalBehaviour/>
         <SpatialDis/>
+        <Team/>
+        <ContactUs/>
     </div>
   );
 }
