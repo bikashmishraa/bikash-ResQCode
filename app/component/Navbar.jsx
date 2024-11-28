@@ -12,6 +12,18 @@ export default function Navbar(){
         {
             name: "Contact",
             link: "/contact"
+        },
+        {
+            name: "Login",
+            link: "/login"
+        },
+        {
+            name: "Signup",
+            link: "/signup"
+        },
+        {
+            name: "Logout",
+            link: "/logout"
         }
     ]
     return (
