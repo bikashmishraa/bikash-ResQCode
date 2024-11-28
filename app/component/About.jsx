@@ -14,6 +14,16 @@ const Team = () => {
                 github:'https://github.com/bikashmishraa/'
             }
         },
+      {
+        name:'Anurag Singh',
+        image:'/Anurag.png',
+        social:{
+          linkedin:'',
+          instagram:'https://www.instagram.com/710anurag/',
+          facebook:'https://www.facebook.com/profile.php?id=100090449943597',
+          github:'https://github.com/peachbrains'
+        }
+      },
         {
             name:'Aasna Kasajoo',
             image:'/aasna.png',
@@ -23,17 +33,7 @@ const Team = () => {
                 facebook:'https://www.facebook.com/profile.php?id=100082064723648',
                 github:'https://github.com/Aasna079'
             }
-        },
-        {
-            name:'Anurag Singh',
-            image:'/Anurag.png',
-            social:{
-                linkedin:'',
-                instagram:'https://www.instagram.com/710anurag/',
-                facebook:'https://www.facebook.com/profile.php?id=100090449943597',
-                github:'https://github.com/peachbrains'
-            }
-        },
+      },
         {
             name:'Aaryan Joshi',
             image:'aaryan.png',
@@ -52,8 +52,8 @@ const Team = () => {
         <div className="flex-center">
           <div className="space-y-8">
             <div className="space-y-3 text-neutral-content">
-              <h2 className="text-3xl font-semibold">Team behind ResQCode</h2>
-              <p className="text-lg">
+              <h2 className="text-3xl font-semibold flex items-center justify-center p-5">Team behind ResQCode</h2>
+              <p className="text-lg p-4">
                 Our team is a group of skilled professionals working together to
                 deliver innovative solutions and turn ideas into reality.
               </p>
@@ -61,15 +61,17 @@ const Team = () => {
             <div>
               <div className="grid grid-cols-2 gap-2 flex flex-wrap flex-col items-center justify-center">
                 {teamData.map((team, idx) => (
-                  <div key={idx} className="space-y-2 flex flex-col">
+                  <div key={idx} className="space-y-2 flex flex-col border p-8">
                     <div
-                      className="w-1/2 h-80 bg-center bg-cover bg-no-repeat rounded-lg shadow-lg"
+                      className="w-full h-80 bg-center bg-cover bg-no-repeat rounded-lg shadow-lg"
                       style={{ backgroundImage: `url(${team.image})` }}
                     ></div>
                     <div className="text-center space-y-2 flex justify-between">
-                      <h3 className="text-lg font-medium text-neutral-content">
+                      <div className="flex items-center justify-center w-full">
+                      <h3 className="text-lg font-medium text-neutral-content flex justify-center items-center">
                         {team.name}
                       </h3>
+                      </div>
                       <ul className="flex-center gap-2  text-xl text-neutral-content">
                         <li>
                           <a href={team.social.linkedin}>

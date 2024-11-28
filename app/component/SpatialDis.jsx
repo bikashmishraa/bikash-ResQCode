@@ -5,33 +5,33 @@ const SpatialDis = () => {
   const data = [
     {
       id: 1,
-      image: "/5.jpg",
+      image: "/sp11.png",
       alt: "deaths"
     },
     {
       id: 2,
-      image: "/6.jpg",
+      image: "/sp22.png",
       alt: "datacards"
     },
     {
       id: 3,
-      image: "/7.png",
+      image: "/sp33.png",
       alt: "directly and indirectly affected"
     },
     {
       id: 4,
-      image: "/8.jpg",
+      image: "/sp44.png",
       alt: "houses destroyed and damaged",}
   ]
 
   return (
     <div className='min-h-screen bg-[#1584ea] p-5'>
-        <div className='w-full border '>
-              <div className='bg-cover' flex flex-wrap flex-col grid grid-cols-1>
+        <div className='w-full border flex items-center justify-center'>
+              <div className='bg-cover flex flex-wrap flex-col grid grid-cols-1 items-center justify-center'>
                     {data.map((item,id) =>{
                       return(
-                        <div className='p-5 w-[550px]'>
-                        <Image key={item.id} src={item.image} alt={item.alt} width={100} height={100} className='w-[700px]'/>
+                        <div className='p-5 w-[550px] bg-[#ffff]'>
+                        <Image key={item.id} src={item.image} alt={item.alt} width={800} height={800} className='w-[700px]'/>
                         </div>
                       )
                     })}

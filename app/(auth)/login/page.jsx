@@ -5,24 +5,24 @@ import { useState } from "react";
 import {auth,googleProvider} from "../../../lib/configure/firebase.config"
 import {createUserWithEmailAndPassword,signInWithPopup,signOut} from 'firebase/auth'
 import { useRouter } from "next/navigation";
-import { h1 } from "framer-motion/client";
 
 export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const router = useRouter();
-    console.log(auth?.currentUser?.photoURL)
+    console.log(auth?.currentUser?.email)
+    console.log(auth?.currentUser?.password)
 
     const signIn = async(e) => {
         e.preventDefault()
         try {
             await createUserWithEmailAndPassword(auth,email,password)
             router.push('/');
-            if (!auth.currentUser) {
-                return (
-                    h1
-                )
-            }
+            // if (!auth.currentUser) {
+            //     return (
+            //         // h1
+            //     )
+            // }
         } catch (error) {
             throw new Error('unable to find user form username and password')
         }

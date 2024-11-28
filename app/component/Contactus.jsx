@@ -8,13 +8,14 @@ const ContactUs = () => {
   };
 
   return (
-    <section className="section-wrapper">
-      <div className="flex-center md:max-w-2xl">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div className="space-y-5">
+    <div className="min-h-screen p-5 w-full border bg-green-500 ">
+    <section className="section-wrapper flex items-center justify-center mt-10 w-full border mt-10">
+      <div className="flex-center  md:max-w-2xl">
+      <div className="grid md:grid-cols-2 gap-6 flex gap-14 border">
+          <div className="space-y-5 flex flex-col justify-center items-center border">
             <div className="space-y-3 text-neutral-content">
-              <h2 className="text-3xl font-semibold">Contact Us</h2>
-              <p className="text-lg">
+              <h2 className="text-3xl font-semibold flex items-center justify-center p-20">Contact Us</h2>
+              <p className="text-lg ">
                 Get in touch with us for any inquiries or support. We're here to
                 help and would love to hear from you.
               </p>
@@ -42,7 +43,7 @@ const ContactUs = () => {
               </li>
             </ul>
           </div>
-
+          <div className="flex items-center justify-center border ">
           <form
             className="space-y-1 max-w-md md:ml-auto w-full"
             onSubmit={handleSubmit}
@@ -89,10 +90,16 @@ const ContactUs = () => {
               Submit
             </button>
           </form>
+          </div>
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
 export default ContactUs;
+
+
+
+

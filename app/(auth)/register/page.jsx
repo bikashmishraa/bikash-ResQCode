@@ -1,107 +1,136 @@
-'use client'
-import { set } from "mongoose";
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import {useState }from "react";
-import {createUserWithEmailAndPassword,signInWithPopup,signOut} from 'firebase/auth'
-import {auth,googleProvider} from "../../../lib/configure/firebase.config"
+import { use, useState } from "react";
+import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth } from "../../../lib/configure/firebase.config"; // Ensure this path is correct
+import { addDoc, collection, getDoc, getDocs } from "firebase/firestore";
+import { db } from "../../../lib/configure/firebase.config"; // Firestore instance
+import { useRouter } from "next/navigation";
+
 export default function Register() {
-    const [data,setData] = useState({
+    const router = useRouter();
+    const [data, setData] = useState({
         email: "",
         password: "",
         username: "",
         phone: ""
-    })
-
+    });
+    
     const handleData = (value, field) => {
-        if (field === 'phone') {
-            const filteredValue = value.replace(/[^0-9+\-()\s]/g, '');  // Filter out invalid characters
-            setData({
-                ...data,
-                [field]: filteredValue
-            });
+        if (field === "phone") {
+            const filteredValue = value.replace(/[^0-9+\-()\s]/g, ""); // Allow only valid characters
+            setData({ ...data, [field]: filteredValue });
         } else {
-            setData({
-                ...data,
-                [field]: value
-            });
+            setData({ ...data, [field]: value });
         }
     };
 
     const sendtoFirebase = async () => {
+        const { email, password, username, phone } = data;
         try {
-          await addDoc(movieCollectionRef, {
-            title: movieName,
-            Release: movieReleaseDate,
-            won: won,
-          })
-          getmovieList();//calling here because after just uploading call it
-        } catch (error) {
-          throw new Error('Unable to add the movie to the database')
-        }
-        setMovieName("")
-        setMovieReleaseDate(0)
-        setWon(false)
-      }
+            // Save user to Firebase Authentication
+            const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
-    const signout = async() => {
-        try {
-            await signOut(auth)
+            // Save additional data to Firestore
+            const userCollection = collection(db, "resqcode"); // Replace "users" with your collection name
+            await addDoc(userCollection, {
+                email,
+                username,
+                phone,
+                uid: userCredential.user.uid,
+            });
+
+            console.log("User registered successfully!");
+            router.push('/')
+            
         } catch (error) {
-            throw error('unable to find user form username and password')
+            console.error("Error registering user:", error);
         }
-    }
+    };
+
+
+        const getData = async () => {
+            try {
+                const data = await getDocs(collection(db, "resqcode"));
+                const filteredData = data.docs.map((doc) => ({
+                    ...doc.data(),
+                    id:doc.id,
+                }));
+                console.log(filteredData);
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        const signout = async () => {
+            try {
+                await signOut(auth);
+                console.log("User signed out successfully.");
+            } catch (error) {
+                console.error("Error signing out:", error);
+            }
+        };
+
     return (
-        <div className="w-full items-center flex justify-center bg-[url('/bg_login.png')] bg-cover bg-center h-screen">
+        <div className="w-full flex justify-center items-center bg-[url('/bg_login.png')] bg-cover bg-center h-screen">
             <div className="flex flex-col gap-4 border p-4 rounded-xl bg-[#DAE7DD]">
                 <h1 className="text-3xl text-blue-500">Register</h1>
+
+                {/* Email Input */}
                 <label className="input input-bordered flex items-center gap-2">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
-                        className="h-4 w-4 opacity-70">
-                        <path
-                            d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z" />
-                        <path
-                            d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z" />
-                    </svg>
-                    <input type="text" className=" bg-green-500" placeholder="Email" value={data.email} onChange={(e) => handleData(e.target.value,'email')} />
-                </label>
-                <label className="input input-bordered flex items-center gap-2">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
-                        className="h-4 w-4 opacity-70">
-                        <path
-                            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
-                    </svg>
-                    <input type="text" className="grow" placeholder="Username" value={data.username} onChange={(e) => handleData(e.target.value,'username')} />
-                </label>
-                <label className="input input-bordered flex items-center gap-2">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 16 16"
-                        fill="currentColor"
-                        className="h-4 w-4 opacity-70">
-                        <path
-                            fillRule="evenodd"
-                            d="M14 6a4 4 0 0 1-4.899 3.899l-1.955 1.955a.5.5 0 0 1-.353.146H5v1.5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1-.5-.5v-2.293a.5.5 0 0 1 .146-.353l3.955-3.955A4 4 0 1 1 14 6Zm-4-2a.75.75 0 0 0 0 1.5.5.5 0 0 1 .5.5.75.75 0 0 0 1.5 0 2 2 0 0 0-2-2Z"
-                            clipRule="evenodd" />
-                    </svg>
-                    <input type="password" className="grow" value={data.password} placeholder="*****" onChange={(e) => handleData(e.target.value,'password')} />
-                </label>
-                <label className="input input-bordered flex items-center gap-2">
-                    <Image src="/phone.svg"  width={20} height={20} alt="phone" />
-                    <input type="tel" className="grow" placeholder="Phone Number" 
-                    value={data.phone} onChange={(e) => handleData(e.target.value,'phone')}/>
+                    <input
+                        type="text"
+                        className="grow"
+                        placeholder="Email"
+                        value={data.email}
+                        onChange={(e) => handleData(e.target.value, "email")}
+                    />
                 </label>
 
-                <h2 className="text-black text-sm">Already have an account? <Link href={"/login"}>🔗</Link></h2>
-                <button className="btn bg-blue-500 text-white">Register</button>
+                {/* Username Input */}
+                <label className="input input-bordered flex items-center gap-2">
+                    <input
+                        type="text"
+                        className="grow"
+                        placeholder="Username"
+                        value={data.username}
+                        onChange={(e) => handleData(e.target.value, "username")}
+                    />
+                </label>
+
+                {/* Password Input */}
+                <label className="input input-bordered flex items-center gap-2">
+                    <input
+                        type="password"
+                        className="grow"
+                        placeholder="Password"
+                        value={data.password}
+                        onChange={(e) => handleData(e.target.value, "password")}
+                    />
+                </label>
+
+                {/* Phone Number Input */}
+                <label className="input input-bordered flex items-center gap-2">
+                    <Image src="/phone.svg" width={20} height={20} alt="phone" />
+                    <input
+                        type="tel"
+                        className="grow"
+                        placeholder="Phone Number"
+                        value={data.phone}
+                        onChange={(e) => handleData(e.target.value, "phone")}
+                    />
+                </label>
+
+                <h2 className="text-sm text-black">
+                    Already have an account? <Link href={"/login"}>Login</Link>
+                </h2>
+                <button
+                    className="btn bg-blue-500 text-white hover:bg-green-600"
+                    onClick={sendtoFirebase}>
+                    Register
+                </button>
             </div>
-
         </div>
-    )
+    );
 }
