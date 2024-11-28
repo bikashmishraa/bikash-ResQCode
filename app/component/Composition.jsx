@@ -26,7 +26,7 @@ const Composition = () => {
 
   return (
     <div className='min-h-screen bg-[#1584ea] p-5'>
-        <div className='w-full border '>
+        <div className='w-full border'>
               <div className='bg-cover flex flex-wrap flex-col grid grid-cols-2'>
                     {data.map((item,id) =>{
                       return (
