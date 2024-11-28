@@ -18,8 +18,8 @@ export default function Navbar(){
             link: "/login"
         },
         {
-            name: "Signup",
-            link: "/signup"
+            name: "register",
+            link: "/register"
         },
         {
             name: "Logout",
