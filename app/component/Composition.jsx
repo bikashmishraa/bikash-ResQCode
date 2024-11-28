@@ -26,16 +26,16 @@ const Composition = () => {
 
   return (
     <div className='min-h-screen bg-[#1584ea] p-5'>
-        <div className='w-full border'>
-              <div  className='bg-cover flex flex-wrap flex-col grid grid-cols-2'>
+        <div className='w-full border bg-[#ffff] flex items-center justify-center'>
+          <div className='bg-cover flex flex-wrap flex-col grid grid-cols-2'>
                     {data.map((item,id) =>{
                       return (
-                       <div className='p-5 w-[500px]'>
-                         <Image key={item.id} src={item.image} alt={item.alt} width={100} height={100} className='w-full'/>
+                       <div key={item.id} className='p-5 w-[550px]'>
+                         <Image key={item.id} src={item.image} alt={item.alt} width={500} height={500} className='w-full'/>
                        </div>
                       )
                     })}
-              </div>
+                    </div>
         </div>
     </div>
   )

@@ -4,6 +4,10 @@ import Navbar from "./component/Navbar";
 import Composition from "./component/Composition";
 import TemporalBehaviour from "./component/TemporalBeh";
 import SpatialDis from "./component/SpatialDis";
+import Team from "./component/About";
+// import ContactUs from "./component/ContactUs";
+import About from "./about/page";
+import Contactme from "./component/contactme";
 
 export default function Home() {
   useEffect(() => {
@@ -27,6 +31,11 @@ export default function Home() {
       <Composition />
       <TemporalBehaviour/>
         <SpatialDis/>
+        <About />
+        <div className="border bg-red-500 w-full flex items-center justify-center">
+        {/* <ContactUs/> */}
+        <Contactme />
+        </div>
     </div>
   );
 }
