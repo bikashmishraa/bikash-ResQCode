@@ -1,5 +1,6 @@
 import Navbar from "./component/Navbar";
 import Composition from "./component/Composition";
+import TemporalBehaviour from "./component/TemporalBeh";
 export default function Home() {
   return (
     <div>
@@ -7,7 +8,7 @@ export default function Home() {
         <Navbar />
     </div>
         <Composition />
-
+        <TemporalBehaviour/>
         </div>
   );
 }
