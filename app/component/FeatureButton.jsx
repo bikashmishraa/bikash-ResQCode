@@ -103,9 +103,13 @@ export default function DisasterResponse() {
     setSelectedSubDisaster(null);
   };
 
+  const chatBot = () => {
+    console.log('chatbot')
+  }
+
   return (
     <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4 text-center text-black">Which button is suitable for you?</h1>
+      <h1 className="text-2xl font-bold mb-2 text-white text-center text-black">Which button is suitable for you?</h1>
       
       {/* Disaster Buttons */}
       <div className="grid grid-cols-2 gap-4 mb-4">
@@ -179,6 +183,13 @@ export default function DisasterResponse() {
           </ul>
         </div>
       )}
+      <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2024/11/29/16/20241129164636-S7W1QJV5.json">
+      <button onClick={chatBot}>
+      Chatbot
+      </button>
+      </a>
+      
     </div>
+    
   );
 }
