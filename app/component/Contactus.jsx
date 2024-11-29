@@ -2,25 +2,21 @@ import { FaLocationDot } from "react-icons/fa6";
 import { MdMail } from "react-icons/md";
 import { FaPhoneAlt } from "react-icons/fa";
 
-const ContactUs = () => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+export default function ContactUs(){
+
+  const handleSubmit = () =>{
+    alert("form submitted sucessfully!");
+  }
 
   return (
-    <div className="min-h-screen p-5 w-full flex flex-col items-center justify-center">
-    <section className="section-wrapper flex items-center justify-center mt-10 w-full border border-green-400 w-1/2 p-10 rounded-lg ">
-      <div className="flex-center  md:max-w-2xl">
-      <div className="grid md:grid-cols-2 gap-6 flex gap-20">
-          <div className="space-y-5 flex flex-col justify-start w-full">
-            <div className="space-y-3 text-neutral-content">
-              <h2 className="text-3xl font-semibold flex items-center justify-center">Contact Us</h2>
-              <p className="text-lg ">
-                Get in touch with us for any inquiries or support. We're here to
-                help and would love to hear from you.
-              </p>
-            </div>
-            <ul className="contact-list text-neutral-content">
+    <div className="min-h-screen flex items-center justify-center w-full">
+      <div className="w-[80%] h-full flex items-center justify-center">
+        <div className=" w-full flex flex-wrap items-left justify-center flex-col mb-[8%]">
+          <div className="space-y-5 flex flex-wrap text neutral-content flex flex-col justify-start w-[90%] ">
+            <h1 className="text-5xl font-semibold flex items-center justify-left p-6 mt-[-8%]">Contact Us</h1>
+            <p className="p-6 mb-[10%] ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo architecto in vel odit libero officia neque sunt optio repellat, quos consequuntur natus blanditiis. Non odio architecto, aliquam minima voluptas illum iusto earum quaerat consequuntur praesentium sint quos mollitia nemo possimus.</p>
+          </div>
+            <ul className="contact-list text-neutral-content ml-3 p-3">
               <li>
                 <span>
                   <FaLocationDot />
@@ -42,9 +38,9 @@ const ContactUs = () => {
                 <a href="tel:+9779823659360">+977 9823659360</a>
               </li>
             </ul>
-          </div>
-          <div className="flex items-center justify-center  ">
-          <form
+        </div>
+        <div className="w-[30%]">
+        <form
             className="space-y-1 max-w-md md:ml-auto w-full"
             onSubmit={handleSubmit}
           >
@@ -58,7 +54,8 @@ const ContactUs = () => {
                 type="text"
                 placeholder="Enter your name"
                 className="input input-bordered w-full"
-              />
+                />
+                <br/>
             </label>
             <label className="form-control w-full">
               <div className="label">
@@ -71,6 +68,7 @@ const ContactUs = () => {
                 placeholder="Enter your email"
                 className="input input-bordered w-full"
               />
+              <br/>
             </label>
             <label className="form-control w-full pb-3">
               <div className="label">
@@ -82,6 +80,7 @@ const ContactUs = () => {
                 className="textarea textarea-bordered h-24 "
                 placeholder="Enter your message"
               ></textarea>
+              <br/>
             </label>
             <button
               type="submit"
@@ -90,16 +89,8 @@ const ContactUs = () => {
               Submit
             </button>
           </form>
-          </div>
         </div>
       </div>
-    </section>
     </div>
-  );
-};
-
-export default ContactUs;
-
-
-
-
+  )
+}
