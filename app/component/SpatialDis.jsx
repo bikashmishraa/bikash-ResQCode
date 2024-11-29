@@ -55,11 +55,11 @@ const SpatialDis = () => {
   return (
     <div className="min-h-screen bg-white rounded-lg p-5">
       <div className="w-full border flex items-center justify-center p-5">
-        <div className="bg-cover flex flex-wrap flex-col grid grid-cols-1 items-center justify-center">
+        <div className="bg-cover flex grid grid-cols-2 gap-2 border  items-center justify-center">
           {data.map((item) => (
             <div
               key={item.id}
-              className="p-5 w-[100%] grid grid-cols-2 bg-[#ffff] border border-green-400 mt-10"
+              className="p-5 w-[100%]  bg-[#ffff] border border-green-400 mt-10"
             >
               {/* Data Item Image */}
               <div>
