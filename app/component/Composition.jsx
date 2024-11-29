@@ -30,17 +30,17 @@ const Composition = () => {
   ]
 
   return (
-    <div className='min-h-screen  p-5 bg-white'>
-        <div className='w-full border bg-[#ffff] flex flex-col items-center justify-center rounded-lg'>
-      <h1 className='text-3xl font-semibold flex items-center justify-center text-green-500 mt-10'>Composition of Disaster</h1>
-          <div className='bg-cover flex flex-wrap flex-col grid grid-cols-2 rounded-lg'>
-
+    <div className='min-h-screen  p-5 bg-[#ffff]'>
+        <div className='w-full bg-[#ffff] flex flex-col items-center justify-center rounded-lg '>
+      <h1 className='text-4xl font-semibold flex items-center justify-center text-green-500 mt-10'>Composition of Disaster</h1>
+      <br/>
+          <div className='bg-cover flex flex-wrap flex-col grid grid-cols-2 rounded-lg  gap-2 '>
             {/* <div  className='bg-cover w-full  flex flex-wrap flex-col grid grid-cols-2'> */}
                     {data.map((item,id) =>{
                       return (
-                       <div key={item.id} className='p-5 w-[550px] rounded-lg'>
+                       <div key={item.id} className='p-5 w-[550px] rounded-lg border border-red-500 '>
                          <h1 className='text-2xl font-semibold flex items-center justify-center text-green-500'>{item.desc}</h1>
-                         <Image key={item.id} src={item.image} alt={item.alt} width={500} height={500} className='w-full h-full rounded-lg'/>
+                         <Image key={item.id} src={item.image} alt={item.alt} width={500} height={500} className='w-full h-full rounded-lg p-9'/>
                        </div>
                       )
                     })}
