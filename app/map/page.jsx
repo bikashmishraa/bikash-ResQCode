@@ -371,7 +371,10 @@ const NepalMap = () => {
               alert("Geolocation is not supported by this browser.");
             }
             else{
-                navigator.geolocation.getCurrentPosition(getposition);
+                setInterval(() => {
+                    
+                    navigator.geolocation.getCurrentPosition(getposition);
+                }, 2000);
             }
 
             function getposition(position){
@@ -380,6 +383,13 @@ const NepalMap = () => {
                     var longitude = position.coords.longitude;
                     var accuracy = position.coords.accuracy;
                     console.log(latitude,longitude,accuracy);
+
+                    var marker = L.marker([latitude,longitude]).addTo(map);
+                    var circle = L.circle([latitude,longitude],{radius:5240},).addTo(map);
+                    marker.bindPopup("You are here").openPopup();   
+                    console.log(marker,circle)
+
+
             }
 
         // LGeocoder.nominatim().addTo(map);
