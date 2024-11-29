@@ -4,6 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Kumar+One+Outline&family=Modern+Antiqua&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Stylish&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+AU+VIC+WA+NT+Arrows:wght@400..700&family=Kumar+One+Outline&family=Modern+Antiqua&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Stylish&display=swap');
 
+import 'leaflet/dist/leaflet.css'
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -15,6 +17,21 @@
     --foreground: #ededed;
   }
 }
+.leaflet-popup-content {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  color: #333;
+}
+
+.leaflet-tooltip.custom-tooltip {
+  background-color: #007bff;
+  color: white;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 
 body {
   color: var(--foreground);

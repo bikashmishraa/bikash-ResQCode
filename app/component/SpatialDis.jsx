@@ -62,7 +62,7 @@ const SpatialDis = () => {
               className="p-5 w-[100%] grid grid-cols-2 bg-[#ffff] border border-green-400 mt-10"
             >
               {/* Data Item Image */}
-              <div>
+              <div className='flex items-center justify-center '>
                 <Image
                   src={item.image}
                   alt={item.alt}
