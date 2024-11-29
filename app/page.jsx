@@ -8,8 +8,9 @@ import {generateToken} from '@/lib/configure/firebase.config'
 import Team from "./component/About";
 import Contactus from "./contact/page";
 import About from "./about/page";
-// import Contactme from "./component/contactme";
 import  FeatureButton  from "./component/FeatureButton";
+import Doccur from "./component/Doccur";
+import Dremedy from "./component/Dremedy";
 import Footer from "./component/Footer"
 
 export default function Home() {
@@ -33,6 +34,9 @@ export default function Home() {
 
   return (
     <div>
+      <div className="min-h-screen bg-[url('/bg_main.png')] bg-center bg-cover">
+        <Navbar />
+        <div className="w-full flex items-center justify-left absolute bottom-20 mb-20 ">
       <div className="min-h-screen bg-[url('/bg_main.png')] bg-center bg-cover ">
         {/* <Navbar /> */}
         {/* <h1 className="text-5xl font-bold ">Just click on the button you prefer!</h1> */}
@@ -40,6 +44,8 @@ export default function Home() {
         <FeatureButton />
         </div>
       </div>
+      <Doccur />
+      <Dremedy />
       <Composition />
       <TemporalBehaviour/>
         <SpatialDis/>
@@ -50,6 +56,7 @@ export default function Home() {
         {/* <Contactme /> */}
         </div>
         <Footer />
+
     </div>
   );
 }
