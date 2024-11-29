@@ -18,12 +18,7 @@ export default function Home() {
  
   return (
     <div>
-      <div className="min-h-screen bg-[url('/bg_main.png')] bg-center bg-cover">
-        <Navbar />
-        <div className="w-full flex items-center justify-left absolute bottom-20 mb-20 ">
       <div className="min-h-screen bg-[url('/bg_main.png')] bg-center bg-cover ">
-        {/* <Navbar /> */}
-        {/* <h1 className="text-5xl font-bold ">Just click on the button you prefer!</h1> */}
         <div className="w-full flex items-center justify-center absolute bottom-20 mb-20 ">
         <FeatureButton />
         </div>
@@ -41,6 +36,6 @@ export default function Home() {
         </div>
         <Footer />
 
-    </div>
+    </div> 
   );
 }
