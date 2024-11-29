@@ -2,17 +2,19 @@
 import React, { useState, useEffect } from 'react';
 
 export default function DisasterResponse() {
-  const [magnitude, setMagnitude] = useState(null);
+  const [magnitude, setMagnitude] = useState([]);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     const fetchEarthquakeData = async () => {
       try {
         const Apidata = await fetch(
-          'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2024-11-25T00:00:00&minmagnitude=6'
+          'https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2024-11-25T00:00:00&minmagnitude=2'
         );
         const data = await Apidata.json();
+        // console.log(data)
         const magnitudeValue = data['features']?.[0]?.['properties']?.['mag'];
+        console.log(magnitudeValue)
         setMagnitude(magnitudeValue);
       } catch (error) {
         setError('Unable to fetch earthquake data');

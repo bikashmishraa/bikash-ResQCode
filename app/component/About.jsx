@@ -39,7 +39,7 @@ const Team = () => {
         },
         {
             name:'Aaryan Raj Joshi',
-            image:'Aaryan.png',
+            image:'/Aaryan.png',
             layout:'fill',
             social:{
                 linkedin:'https://www.linkedin.com/in/7n5aj/',

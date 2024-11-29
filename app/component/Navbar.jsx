@@ -22,12 +22,12 @@ export default function Navbar(){
             link: "/register"
         },
         {
-            name: "Logout",
-            link: "/logout"
+            name: "Map",
+            link: "/map"
         }
     ]
     return (
-        <div className="w-full flex justify-between gap-4 p-4 px-10">
+        <div className="w-full flex bg-gray-500 justify-between gap-4 p-4 px-10 sticky top-0 z-50 overflow-hidden ">
             <div className="leftnav">
                 <h1 className="text-3xl ml-10">ResQCode</h1>
             </div>

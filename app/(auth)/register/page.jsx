@@ -9,6 +9,7 @@ import { db } from "../../../lib/configure/firebase.config"; // Firestore instan
 import { useRouter } from "next/navigation";
 
 export default function Register() {
+    const [loading, setLoading] = useState(false);
     const router = useRouter();
     const [data, setData] = useState({
         email: "",
@@ -30,6 +31,7 @@ export default function Register() {
         const { email, password, username, phone } = data;
         try {
             // Save user to Firebase Authentication
+            loading(true);
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
             // Save additional data to Firestore
@@ -42,6 +44,7 @@ export default function Register() {
             });
 
             console.log("User registered successfully!");
+            loading(false);
             router.push('/')
             
         } catch (error) {
