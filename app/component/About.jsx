@@ -14,26 +14,26 @@ const Team = () => {
                 github:'https://github.com/bikashmishraa/'
             }
         },
-      {
-        name:'Anurag Singh',
-        image:'/Anurag.png',
-        social:{
-          linkedin:'',
-          instagram:'https://www.instagram.com/710anurag/',
-          facebook:'https://www.facebook.com/profile.php?id=100090449943597',
-          github:'https://github.com/peachbrains'
-        }
-      },
         {
-            name:'Aasna Kasajoo',
-            image:'/aasna.png',
-            social:{
-                linkedin:'https://www.linkedin.com/in/aasna-kasajoo-50418b33b/',
-                instagram:'https://www.instagram.com/ansaa65/',
-                facebook:'https://www.facebook.com/profile.php?id=100082064723648',
-                github:'https://github.com/Aasna079'
-            }
-      },
+          name:'Aasna Kasajoo',
+          image:'/aasna.png',
+          social:{
+            linkedin:'https://www.linkedin.com/in/aasna-kasajoo-50418b33b/',
+            instagram:'https://www.instagram.com/ansaa65/',
+            facebook:'https://www.facebook.com/profile.php?id=100082064723648',
+            github:'https://github.com/Aasna079'
+          }
+        },
+        {
+          name:'Anurag Singh',
+          image:'/Anurag.png',
+          social:{
+            linkedin:'',
+            instagram:'https://www.instagram.com/710anurag/',
+            facebook:'https://www.facebook.com/profile.php?id=100090449943597',
+            github:'https://github.com/peachbrains'
+          }
+        },
         {
             name:'Aaryan Joshi',
             image:'aaryan.png',

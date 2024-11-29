@@ -8,13 +8,13 @@ const ContactUs = () => {
   };
 
   return (
-    <div className="min-h-screen p-5 w-full border bg-green-500 ">
-    <section className="section-wrapper flex items-center justify-center mt-10 w-full border mt-10">
+    <div className="min-h-screen p-5 w-full flex flex-col items-center justify-center">
+    <section className="section-wrapper flex items-center justify-center mt-10 w-full border border-green-400 w-1/2 p-10 rounded-lg ">
       <div className="flex-center  md:max-w-2xl">
-      <div className="grid md:grid-cols-2 gap-6 flex gap-14 border">
-          <div className="space-y-5 flex flex-col justify-center items-center border">
+      <div className="grid md:grid-cols-2 gap-6 flex gap-20">
+          <div className="space-y-5 flex flex-col justify-start w-full">
             <div className="space-y-3 text-neutral-content">
-              <h2 className="text-3xl font-semibold flex items-center justify-center p-20">Contact Us</h2>
+              <h2 className="text-3xl font-semibold flex items-center justify-center">Contact Us</h2>
               <p className="text-lg ">
                 Get in touch with us for any inquiries or support. We're here to
                 help and would love to hear from you.
@@ -43,7 +43,7 @@ const ContactUs = () => {
               </li>
             </ul>
           </div>
-          <div className="flex items-center justify-center border ">
+          <div className="flex items-center justify-center  ">
           <form
             className="space-y-1 max-w-md md:ml-auto w-full"
             onSubmit={handleSubmit}
