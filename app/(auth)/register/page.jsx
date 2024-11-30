@@ -1,15 +1,15 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { use, useState } from "react";
-import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { useState } from "react";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../lib/configure/firebase.config"; // Ensure this path is correct
-import { addDoc, collection, getDoc, getDocs } from "firebase/firestore";
+import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../../lib/configure/firebase.config"; // Firestore instance
 import { useRouter } from "next/navigation";
 
 export default function Register() {
-    const [loading, setLoading] = useState(false);
+    // const [loading, setLoading] = useState(false);
     const router = useRouter();
     const [data, setData] = useState({
         email: "",
@@ -31,7 +31,7 @@ export default function Register() {
         const { email, password, username, phone } = data;
         try {
             // Save user to Firebase Authentication
-            loading(true);
+            // setLoading(true);
             const userCredential = await createUserWithEmailAndPassword(auth, email, password);
 
             // Save additional data to Firestore
@@ -44,7 +44,7 @@ export default function Register() {
             });
 
             console.log("User registered successfully!");
-            loading(false);
+            // setLoading(false);
             router.push('/')
             
         } catch (error) {
@@ -53,27 +53,27 @@ export default function Register() {
     };
 
 
-        const getData = async () => {
-            try {
-                const data = await getDocs(collection(db, "resqcode"));
-                const filteredData = data.docs.map((doc) => ({
-                    ...doc.data(),
-                    id:doc.id,
-                }));
-                console.log(filteredData);
-            } catch (error) {
-                console.error("Error fetching data:", error);
-            }
-        }
+        // const getData = async () => {
+        //     try {
+        //         const data = await getDocs(collection(db, "resqcode"));
+        //         const filteredData = data.docs.map((doc) => ({
+        //             ...doc.data(),
+        //             id:doc.id,
+        //         }));
+        //         console.log(filteredData);
+        //     } catch (error) {
+        //         console.error("Error fetching data:", error);
+        //     }
+        // }
 
-        const signout = async () => {
-            try {
-                await signOut(auth);
-                console.log("User signed out successfully.");
-            } catch (error) {
-                console.error("Error signing out:", error);
-            }
-        };
+        // const signout = async () => {
+        //     try {
+        //         await signOut(auth);
+        //         console.log("User signed out successfully.");
+        //     } catch (error) {
+        //         console.error("Error signing out:", error);
+        //     }
+        // };
 
     return (
         <div className="w-full flex justify-center items-center bg-[url('/bg_login.png')] bg-cover bg-center h-screen">

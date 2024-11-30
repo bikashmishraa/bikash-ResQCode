@@ -17,7 +17,7 @@ export default function DisasterResponse() {
         console.log(magnitudeValue)
         setMagnitude(magnitudeValue);
       } catch (error) {
-        setError('Unable to fetch earthquake data');
+        setError('Unable to fetch earthquake data',error);
       }
     };
 

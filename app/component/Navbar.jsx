@@ -24,6 +24,10 @@ export default function Navbar(){
         {
             name: "Map",
             link: "/map"
+        },
+        {
+            name: "Floodpredict",
+            link: "/floodpredict"
         }
     ]
     return (

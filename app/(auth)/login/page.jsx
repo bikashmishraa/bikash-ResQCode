@@ -25,7 +25,7 @@ export default function Login() {
             //     )
             // }
         } catch (error) {
-            throw new Error('unable to find user form username and password')
+            throw new Error('unable to find user form username and password',error)
         }
         setEmail("")
         setPassword("")
@@ -35,7 +35,7 @@ export default function Login() {
             await signInWithPopup(auth,googleProvider)
             router.push('/');
         } catch (error) {
-            throw new Error('unable to find user form username and password')
+            throw new Error('unable to find user form username and password',error)
         }
     }
     // const signout = async() => {
