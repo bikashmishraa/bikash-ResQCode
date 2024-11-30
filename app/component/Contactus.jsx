@@ -14,7 +14,7 @@ export default function ContactUs(){
         <div className=" w-full flex flex-wrap items-left justify-center flex-col mb-[8%]">
           <div className="space-y-5 flex flex-wrap text neutral-content flex flex-col justify-start w-[90%] ">
             <h1 className="text-5xl font-semibold flex items-center justify-left p-6 mt-[-8%]">Contact Us</h1>
-            <p className="p-6 mb-[10%] ">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Illo architecto in vel odit libero officia neque sunt optio repellat, quos consequuntur natus blanditiis. Non odio architecto, aliquam minima voluptas illum iusto earum quaerat consequuntur praesentium sint quos mollitia nemo possimus.</p>
+            <p className="p-6 mb-[10%] ">Get in touch with us for any inquiries or support. We're here to help and would love to hear from you. </p>
           </div>
             <ul className="contact-list text-neutral-content ml-3 p-3">
               <li>
