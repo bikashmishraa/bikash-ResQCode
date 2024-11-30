@@ -1,19 +1,19 @@
 // 'use client';
 // import React, { useEffect } from "react";
-import Navbar from "./component/Navbar";
+// import Navbar from "./component/Navbar";
 import Composition from "./component/Composition";
 import TemporalBehaviour from "./component/TemporalBeh";
 import SpatialDis from "./component/SpatialDis";
-import Team from "./component/About";
+// import Team from "./component/About";
 import Contactus from "./contact/page";
 import About from "./about/page";
 import FeatureButton from "./component/FeatureButton";
 import Doccur from "./component/Doccur";
 import Dremedy from "./component/Dremedy";
-import Footer from "./component/Footer";
-import { messaging } from "../lib/configure/firebase.config";
-import { getToken } from "firebase/messaging";
-import { generateToken } from "../lib/configure/firebase.config";
+// import Footer from "./component/Footer";
+// import { messaging } from "../lib/configure/firebase.config";
+// import { getToken } from "firebase/messaging";
+// import { generateToken } from "../lib/configure/firebase.config";
 
 
 export default function Home() {
@@ -24,28 +24,28 @@ export default function Home() {
   // useEffect(() => {
   //   generateToken();
   // }, []);
-  const sgMail = require('@sendgrid/mail');
-  sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+  // const sgMail = require('@sendgrid/mail');
+  // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
   
-  const msg = {
-    to: 'sowohi1451@bflcafe.com',
-    from: 'bikash.mishra2079', // Use the email address or domain you verified above
-    subject: 'Alert Notification',
-    text: 'This is to notify you that there is an alert in your area',
-    html: '<strong>Notified!</strong>',
-  };
+  // const msg = {
+  //   to: 'sowohi1451@bflcafe.com',
+  //   from: 'bikash.mishra2079', // Use the email address or domain you verified above
+  //   subject: 'Alert Notification',
+  //   text: 'This is to notify you that there is an alert in your area',
+  //   html: '<strong>Notified!</strong>',
+  // };
   
-  (async () => {
-    try {
-      await sgMail.send(msg);
-    } catch (error) {
-      console.error(error);
+  // (async () => {
+  //   try {
+  //     await sgMail.send(msg);
+  //   } catch (error) {
+  //     console.error(error);
   
-      if (error.response) {
-        console.error(error.response.body)
-      }
-    }
-  })();
+  //     if (error.response) {
+  //       console.error(error.response.body)
+  //     }
+  //   }
+  // })();
 
   return (
     <div>
@@ -64,7 +64,7 @@ export default function Home() {
       <div className="w-full flex items-center justify-center mt-[-2%]">
         <Contactus />
       </div>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

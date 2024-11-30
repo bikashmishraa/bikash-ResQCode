@@ -1,9 +1,10 @@
 'use client'
-import Image from "next/image";
+// import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import {auth,googleProvider} from "../../../lib/configure/firebase.config"
-import {createUserWithEmailAndPassword,signInWithPopup,signOut} from 'firebase/auth'
+import {createUserWithEmailAndPassword,signInWithPopup} from 'firebase/auth'
+// import {signOut} from 'firebase/auth'
 import { useRouter } from "next/navigation";
 
 export default function Login() {

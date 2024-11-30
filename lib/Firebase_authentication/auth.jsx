@@ -14,7 +14,7 @@ export default function Auth(){
         try {
             await createUserWithEmailAndPassword(auth,email,password)
         } catch (error) {
-            throw error('unable to find user form username and password')
+            throw error('unable to find user form username and password',error)
         }
         setEmail("")
         setPassword("")
@@ -23,14 +23,14 @@ export default function Auth(){
         try {
             await signInWithPopup(auth,googleProvider)
         } catch (error) {
-            throw new Error('unable to find user form username and password')
+            throw new Error('unable to find user form username and password',error)
         }
     }
     const signout = async() => {
         try {
             await signOut(auth)
         } catch (error) {
-            throw error('unable to find user form username and password')
+            throw new Error('unable to find user form username and password',error)
         }
     }
     return(
